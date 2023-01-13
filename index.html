@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>chatter</title>
+  <style>
+  
+   body{background:lightblue;} 
+  
+    header {
+     font-family: 'Poppins', sans-serif;
+      border: 1px solid lightblue;
+      box-shadow: 1px 1px 5px black;
+      text-align: center;
+      background-color: #2596be;
+      border-radius : 5px;}
+    
+    #chatlog{
+    border:1px solid skyblue;
+    box-shadow : 1px 2px 10px black;
+    margin-top:10px;
+    padding:1px 5px;
+    border-radius: 5px;} 
+    
+    #question{margin :10px 0px 0px 0px;} 
+    #question{height:30px;
+      width :250px;}
+      
+    #ok{height:36px;
+      width :80px;}
+  
+    
+    /*loader csss......*/
+    #typing-loader{
+    width: 0.8rem;
+    height: 0.8rem;
+    border-radius: 50%;
+    animation: typing 1s linear infinite alternate;
+    position: relative;
+    left: -3rem;
+    margin: 0 auto;
+    display: none;
+    margin-top:12px;}
+
+@keyframes typing{
+    0%{
+        background-color: rgba(0,0,0, 1);
+        box-shadow: 3.2rem 0 0 0 rgba(0,0,0,0.2),
+        6.4rem 0 0 0 rgba(0,0,0,0.2);
+    }
+    25%{
+        background-color: rgba(0,0,0, 0.4);
+        box-shadow: 3.2rem 0 0 0 rgba(0,0,0,2),
+        6.4rem 0 0 0 rgba(0,0,0,0.2);
+    }
+    75%{ background-color: rgba(0,0,0, 0.4);
+        box-shadow: 3.2rem 0 0 0 rgba(0,0,0,0.2),
+        6.4rem 0 0 0 rgba(0,0,0,1);
+    }}
+  </style>
+  
+</head>
+
+<body id="body">
+<header id="header">
+  <h3>CHAT BOX </h3>
+ </header>
+  
+  <div id="chatlog">
+    <!-- <h3>hello world how </h3>
+    <h3>PROFILE SUMMARY is </h3> -->
+  </div>
+      <div id="typing-loader"></div>
+  <div>
+
+    <input type="text" id="question">
+    <button id="ok" onclick="myFunction()" type="submit"> send </button>
+   
+  </div>
+  <script>
+  //main button
+ let button= document.getElementById("ok");
+
+
+button.onclick = () => {
+  
+  //typing.....
+  function typeWriter(txt) {
+  var i = 0;
+  setTimeout(write,300);
+  function write(){
+  if (i < txt.length) {
+    document.getElementById("chatlog").innerHTML += txt.charAt(i);
+    i++;
+    setTimeout(write,50);}
+  else if (i = txt.length){
+      document.getElementById("chatlog").innerHTML += '<br>' } }} 
+
+  //input box process 
+const question = document.getElementById('question').value;
+document.getElementById('question').value= "";
+
+//user asked questions display 
+document.getElementById('chatlog').innerHTML+=" <b> you <b>: " + question + "<br>";
+
+let help = [" ❤️ : nitesh nia you can search about him on Google" ," ❤️ :  Nitesh Nia", " ❤️ : nitesh nia, you can learn more about him by searching for him on Google.", "  ❤️ : Not sure from where to start, but I've been developed back in 2022 by Nitesh Nia. My main purpose is to serve humans and make their life easier by automating their routine work. "," ❤️ : Nitesh Nia is an Indian software developer who started to get involved in IT industry since 2021 and so he created me as a project", " ❤️ : I was created by Nitesh Nia.", " ❤️ : My dear great botmaster, Nitesh Nia.", " ❤️ : God of course!! kidding 😁 I'm created by Nitesh Nia"];
+
+if(question.includes('made')){
+        let finalresult = help[Math.floor(Math.random() * help.length)];
+       let txt = finalresult;
+       typeWriter(txt)} 
+        
+ else if(question.includes('invent')){
+        let finalresult = help[Math.floor(Math.random() * help.length)];
+        let txt = finalresult ;      typeWriter(txt)} 
+            
+  else if(question.includes('invented')){let finalresult = help[Math.floor(Math.random() * help.length)];
+        let txt = finalresult;     typeWriter(txt) } 
+        
+  else if (question.includes('create')) {let finalresult = help[Math.floor(Math.random() * help.length)];
+    let txt = finalresult;
+    typeWriter(txt)}
+    
+    else if (question.includes('nitesh')||question.includes('Nitesh')||question.includes('Nia')||question.includes('nia')) 
+    {let finalresult = help[Math.floor(Math.random() * help.length)];
+    let txt = finalresult;
+    typeWriter(txt)} 
+    
+  else if (question.includes('created')) { let finalresult = help[Math.floor(Math.random() * help.length)];
+ let txt = finalresult;
+ typeWriter(txt)} 
+ 
+ else if (question.includes('my')&& question.includes('mobile')||question.includes('device')) {
+   text=(navigator.appVersion)
+  txt= " ❤️ : you are using " + text
+  typeWriter(txt)} 
+  
+ else if(question.includes('the time'))
+{let date = new Date();
+   let hrs = date.getHours();
+   let mins = date.getMinutes();
+   txt= ` ❤️ : The current time is ${hrs}:${mins}`
+  typeWriter(txt)} 
+  
+  else if(question.includes('my')&&question.includes('battery'))
+{ navigator.getBattery()
+.then(function(battery)
+{txt = ` ❤️ : As i can see your battery is 🔋 ${battery.level*100} %`
+  typeWriter(txt)})} 
+  
+    else if(question.includes('today') & question.includes('date') || question.includes('day')) 
+{ data = Date()
+  split = data.split(' ');
+  txt= " ❤️ : "+ split[0] + " " +split[2]+" " + split[1]+" " + split[3];
+  typeWriter(txt)} 
+
+  else if(question.includes('background')||question.includes('theme') ){let Clr = prompt("enter any color name to change background")
+  body = document.querySelector("#body")
+  body.style.backgroundColor = Clr
+      document.getElementById('chatlog').style.border=Clr
+      document.getElementById('header').style.background=Clr
+      
+      document.getElementById('chatlog').innerHTML += " ❤️ : background has been changed <br>";
+      
+    if (Clr.includes('black')) {
+    document.getElementById('chatlog').style.color="white";
+      document.getElementById('header').style.color="white"
+    }
+  } 
+       
+ else{///api.....
+ 
+  //loader function.......
+myVar = setTimeout(showPage,200);
+
+//show loader 
+function showPage(){
+  document.getElementById("typing-loader").style.display = "block";} 
+  
+  //hide loader 
+  function hidePage(){
+  document.getElementById("typing-loader").style.display = "none";}
+
+const encodedParams = new URLSearchParams();
+const msg=question
+encodedParams.append("in", msg);
+encodedParams.append("op", "in");
+encodedParams.append("cbot", "1");
+encodedParams.append("SessionID", "RapidAPI1");
+encodedParams.append("cbid", "1");
+encodedParams.append("key", "RHMN5hnQ4wTYZBGCF3dfxzypt68rVP");
+encodedParams.append("ChatSource", "RapidAPI");
+encodedParams.append("duration", "1");
+
+const options = {
+	method: 'POST',
+	headers: {
+		'content-type': 'application/x-www-form-urlencoded',
+		'X-RapidAPI-Key': 'f11efaaf94mshc50d1cbbfa6f026p1b2da2jsn225a0764a5f5',
+		'X-RapidAPI-Host': 'robomatic-ai.p.rapidapi.com'
+	},
+	body: encodedParams
+};
+
+fetch('https://robomatic-ai.p.rapidapi.com/api', options)
+	.then(response => response.json())
+	.then(response => {
+	setTimeout(hidePage,20); 
+	  
+////typing.......	  
+var txt = response.out
+var i = 0;
+
+setTimeout(typeWriter,20);
+
+function typeWriter() {
+  
+  document.getElementById("chatlog").innerHTML += " ❤️ : "
+  
+  setTimeout(write,300);
+  
+  function write(){
+    
+  if (i < txt.length) {
+    document.getElementById("chatlog").innerHTML += txt.charAt(i);
+    i++;
+    setTimeout(write,50);}
+    
+  else if (i = txt.length){
+      document.getElementById("chatlog").innerHTML +='<br>' } 
+}} 
+	})
+	.catch(err => console.error(err));}} 
+	
+  </script>
+
+</body>
+
+</html>
